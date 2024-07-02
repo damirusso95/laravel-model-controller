@@ -4,8 +4,19 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Movie;
 
 class PageController extends Controller
 {
-    //
+    public function home(){
+
+        $film = Movie::all();
+
+        $dati = [
+            // "store" => config("data"),
+            "film" => $film
+        ];
+
+        return view('home', $dati);
+    }
 }
